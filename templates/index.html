@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equinova Bias Detector</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+
+<h1>Equinova AI Bias Detector</h1>
+
+<div id="upload-wrapper">
+    <input type="file" id="file-input" hidden>
+    
+    <div id="drop-zone">
+        <h3>Upload PDF</h3>
+        <p>Drag & Drop PDF Here</p>
+    </div>
+
+    <button id="sample-btn">Download Sample PDF</button>
+</div>
+
+<div id="loading" class="hidden">
+    <p>Processing...</p>
+</div>
+
+<div id="results-section" class="hidden">
+
+    <div id="bias-banner">
+        <h2 id="bias-text"></h2>
+        <p id="bias-details-text"></p>
+    </div>
+
+    <table id="results-table">
+        <thead>
+            <tr>
+                <th>Group</th>
+                <th>Total</th>
+                <th>Selected</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <canvas id="gender-chart"></canvas>
+    <canvas id="category-chart"></canvas>
+
+    <button id="download-btn">Download Report</button>
+    <button id="reset-btn">Reset</button>
+    <button id="complaint-btn" class="hidden">Complaint</button>
+
+</div>
+
+<p id="error-message" class="hidden"></p>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
